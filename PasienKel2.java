@@ -3,7 +3,7 @@ public class PasienKel2 {
     String nik;
     String keluhan;
     
-    void PasienKel2(String nama, String nik, String keluhan) {
+    PasienKel2(String nama, String nik, String keluhan) {
         this.nama = nama;
         this.nik = nik;
         this.keluhan = keluhan;

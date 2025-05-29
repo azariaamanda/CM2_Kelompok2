@@ -4,7 +4,7 @@ public class TransaksiLayananKel2 {
     int durasiLayanan;
     int biaya;
 
-    void TransaksiLayananKel2(PasienKel2 pasien, DokterKel2 dokter, int durasi) {
+    TransaksiLayananKel2(PasienKel2 pasien, DokterKel2 dokter, int durasi) {
         this.pasien = pasien;
         this.dokter = dokter;
         durasiLayanan = durasi;
