@@ -63,7 +63,7 @@ public class TransaksiPengisianKel2 {
         KendaraanKel2 kendaraan = dequeue();
         TransaksiPengisianKel2 transaksiBaru = new TransaksiPengisianKel2(kendaraan, bbm, liter);
 
-        String data = "Plat: " + kendaraan.platNomor + ", BBM: " + liter + "L, Total Bayar: Rp" + transaksiBaru.totalBayar;
+        String data = kendaraan.platNomor + " : "+ transaksiBaru.totalBayar;
         simpanTransaksi(data);
 
         return kendaraan;
@@ -97,9 +97,10 @@ public class TransaksiPengisianKel2 {
             System.out.println("Belum ada transaksi yang tercatat.");
             return;
         }
-        System.out.println("=== Riwayat Transaksi Pengisian BBM ===");
+        System.out.println("=== Riwayat Transaksi ===");
+        System.out.println("Daftar Transaksi: ");
         for (int i = front; i <= rear; i++) {
-            System.out.println((i - front + 1) + ". " + transaksi[i]);
+            System.out.println(transaksi[i]);
         }
     }
 
