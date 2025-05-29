@@ -5,8 +5,12 @@ public class TransaksiPengisianKel2 {
     double totalBayar;
     NodeKendaraanKel2 head;
     NodeKendaraanKel2 tail;
+    int MAX = 100;
+    String[] transaksi = new String[MAX];
+    int front = -1;
+    int rear = -1;
 
-    public TransaksiPengisianKel2() {   
+    public TransaksiPengisianKel2() {
     }
 
     TransaksiPengisianKel2(KendaraanKel2 kendaraan, BBMKel2 bbm, double liter) {
@@ -16,8 +20,7 @@ public class TransaksiPengisianKel2 {
         this.totalBayar = bbm.hargaPerLiter * liter;
     }
 
-
-    boolean isEmpty(){
+    boolean isEmpty() {
         return (head == null);
     }
 
@@ -41,12 +44,12 @@ public class TransaksiPengisianKel2 {
 
     public KendaraanKel2 dequeue() {
         if (isEmpty()) {
-            return null; 
+            return null;
         }
         KendaraanKel2 data = head.data;
         head = head.next;
         if (head == null) {
-            tail = null; 
+            tail = null;
         }
         return data;
     }
@@ -56,10 +59,57 @@ public class TransaksiPengisianKel2 {
             System.out.println("Tidak ada kendaraan dalam antrian");
             return null;
         }
-        
+
         KendaraanKel2 kendaraan = dequeue();
-        TransaksiPengisianKel2 transaksi = new TransaksiPengisianKel2(kendaraan, bbm, liter);        
+        TransaksiPengisianKel2 transaksiBaru = new TransaksiPengisianKel2(kendaraan, bbm, liter);
+
+        String data = "Plat: " + kendaraan.platNomor + ", BBM: " + liter + "L, Total Bayar: Rp" + transaksiBaru.totalBayar;
+        simpanTransaksi(data);
+
         return kendaraan;
     }
 
+    public void tampilAntrian() {
+        if (!isEmpty()) {
+            NodeKendaraanKel2 tmp = head;
+            while (tmp != null) {
+                tmp.data.tampilkanInfo();
+                tmp = tmp.next;
+            }
+            System.out.println("");
+        } else {
+            System.out.println("Antrian Kosong");
+        }
+    }
+
+    public void jumlahAntrian() {
+        int count = 0;
+        NodeKendaraanKel2 current = head;
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+        System.out.println(">>> Jumlah Kendaraan dalam Antrian: " + count);
+    }
+
+    public void tampilkanRiwayatTransaksi() {
+        if (isEmpty()) {
+            System.out.println("Belum ada transaksi yang tercatat.");
+            return;
+        }
+        System.out.println("=== Riwayat Transaksi Pengisian BBM ===");
+        for (int i = front; i <= rear; i++) {
+            System.out.println((i - front + 1) + ". " + transaksi[i]);
+        }
+    }
+
+    public void simpanTransaksi(String data) {
+        if (rear == MAX - 1) {
+            System.out.println("Riwayat transaksi penuh!");
+            return;
+        }
+        if (front == -1)
+            front = 0;
+        transaksi[++rear] = data;
+    }
 }

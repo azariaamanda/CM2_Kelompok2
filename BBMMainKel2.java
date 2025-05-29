@@ -35,9 +35,11 @@ public class BBMMainKel2 {
                     break;
 
                 case 2:
+                    trs.tampilAntrian();
                     break;
 
                 case 3:
+                    trs.jumlahAntrian();
                     break;
 
                 case 4:
@@ -63,6 +65,7 @@ public class BBMMainKel2 {
                     break;
 
                 case 5:
+                    trs.tampilkanRiwayatTransaksi();
                     break;
 
                 case 0:
