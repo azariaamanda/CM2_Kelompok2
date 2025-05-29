@@ -1,9 +1,9 @@
 public class BBMKel2 {
-    String namaBBN;
+    String namaBBM;
     double hargaPerLiter;
 
     public BBMKel2(String namaBBM, double harga) {
-        this.namaBBN = namaBBM;
+        this.namaBBM = namaBBM;
         hargaPerLiter = harga;
     }
 }
