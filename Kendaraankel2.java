@@ -1,9 +1,9 @@
-public class Kendaraankel2 {
+public class KendaraanKel2 {
     String platNomor;
     String tipe;
     String merk;
 
-    public Kendaraankel2(String plat, String tipe, String merk) {
+    public KendaraanKel2(String plat, String tipe, String merk) {
         platNomor = plat;
         this.tipe = tipe;
         this.merk = merk;
