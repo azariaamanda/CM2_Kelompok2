@@ -7,6 +7,7 @@ public class TransaksiPengisianKel2 {
     NodeKendaraanKel2 tail;
     int MAX = 100;
     String[] transaksi = new String[MAX];
+    double[] totalTransaksi = new double[MAX];
     int front = -1;
     int rear = -1;
 
@@ -63,8 +64,8 @@ public class TransaksiPengisianKel2 {
         KendaraanKel2 kendaraan = removeFirst();
         TransaksiPengisianKel2 transaksiBaru = new TransaksiPengisianKel2(kendaraan, bbm, liter);
 
-        String data = kendaraan.platNomor + " : "+ transaksiBaru.totalBayar;
-        simpanTransaksi(data);
+        String data = kendaraan.platNomor + " : " + transaksiBaru.totalBayar;
+        simpanTransaksi(data, transaksiBaru.totalBayar);
 
         return kendaraan;
     }
@@ -104,7 +105,7 @@ public class TransaksiPengisianKel2 {
         }
     }
 
-    public void simpanTransaksi(String data) {
+    public void simpanTransaksi(String data, double nilai) {
         if (rear == MAX - 1) {
             System.out.println("Riwayat transaksi penuh!");
             return;
@@ -112,5 +113,15 @@ public class TransaksiPengisianKel2 {
         if (front == -1)
             front = 0;
         transaksi[++rear] = data;
+        totalTransaksi[rear] = nilai;
     }
+
+    public double hitungTotalKeseluruhanTransaksi() {
+        double total = 0;
+        for (int i = front; i <= rear; i++) {
+            total += totalTransaksi[i];
+        }
+        return total;
+    }
+
 }

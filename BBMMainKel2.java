@@ -29,7 +29,7 @@ public class BBMMainKel2 {
                     System.out.print("Masukkan Merk: ");
                     String merk = input.nextLine();
                     KendaraanKel2 kendaraan = new KendaraanKel2(platNomor, tipe, merk);
-                    
+
                     trs.tambahAntrian(kendaraan);
                     System.out.println(">> Kendaraan masuk ke dalam antrian.");
                     break;
@@ -50,15 +50,15 @@ public class BBMMainKel2 {
 
                     KendaraanKel2 kendaraanBerikutnya = trs.lihatKendaraanDepan();
                     System.out.println("Petugas melayani " + kendaraanBerikutnya.platNomor);
-    
+
                     System.out.print("Masukkan Jenis BBM: ");
                     String namaBBM = input.nextLine();
                     System.out.print("Masukkan Harga per liter: ");
                     double hargaPerLiter = input.nextDouble();
                     System.out.print("Masukkan Jumlah Liter: ");
                     double liter = input.nextDouble();
-                    input.nextLine(); 
-                    
+                    input.nextLine();
+
                     BBMKel2 bbm = new BBMKel2(namaBBM, hargaPerLiter);
                     KendaraanKel2 kendaraanDilayani = trs.layaniKendaraan(bbm, liter);
                     System.out.println(">> Transaksi berhasil dicatat.");
@@ -66,6 +66,9 @@ public class BBMMainKel2 {
 
                 case 5:
                     trs.tampilkanRiwayatTransaksi();
+
+                    double totalKeseluruhan = trs.hitungTotalKeseluruhanTransaksi();
+                    System.out.println("Total Keseluruhan Transaksi: Rp " + totalKeseluruhan);
                     break;
 
                 case 0:
@@ -75,7 +78,7 @@ public class BBMMainKel2 {
                 default:
                     System.out.println("Pilihan tidak valid.");
             }
-            
+
         } while (pilih != 0);
     }
 }
