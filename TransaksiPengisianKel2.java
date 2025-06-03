@@ -42,7 +42,7 @@ public class TransaksiPengisianKel2 {
         return head.data;
     }
 
-    public KendaraanKel2 dequeue() {
+    public KendaraanKel2 removeFirst() {
         if (isEmpty()) {
             return null;
         }
@@ -60,7 +60,7 @@ public class TransaksiPengisianKel2 {
             return null;
         }
 
-        KendaraanKel2 kendaraan = dequeue();
+        KendaraanKel2 kendaraan = removeFirst();
         TransaksiPengisianKel2 transaksiBaru = new TransaksiPengisianKel2(kendaraan, bbm, liter);
 
         String data = kendaraan.platNomor + " : "+ transaksiBaru.totalBayar;

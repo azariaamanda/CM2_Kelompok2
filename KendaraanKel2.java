@@ -1,5 +1,4 @@
 public class KendaraanKel2 {
-    public static final String jenisKendaraan = null;
     String platNomor;
     String tipe;
     String merk;
